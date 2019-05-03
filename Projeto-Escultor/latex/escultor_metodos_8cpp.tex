@@ -1,0 +1,81 @@
+\hypertarget{escultor_metodos_8cpp}{}\section{escultor\+Metodos.\+cpp File Reference}
+\label{escultor_metodos_8cpp}\index{escultorMetodos.cpp@{escultorMetodos.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Escultor3\+D.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{escultor_metodos_8cpp_ae87792baa4ccdce23c23c317eb31e4c6}{put\+Ellipsoid}} (int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
+\item 
+void \mbox{\hyperlink{escultor_metodos_8cpp_af47f99d6ad309469cafe7b506df61618}{cut\+Ellipsoid}} (int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{escultor_metodos_8cpp_af47f99d6ad309469cafe7b506df61618}\label{escultor_metodos_8cpp_af47f99d6ad309469cafe7b506df61618}} 
+\index{escultorMetodos.cpp@{escultorMetodos.cpp}!cutEllipsoid@{cutEllipsoid}}
+\index{cutEllipsoid@{cutEllipsoid}!escultorMetodos.cpp@{escultorMetodos.cpp}}
+\subsubsection{\texorpdfstring{cutEllipsoid()}{cutEllipsoid()}}
+{\footnotesize\ttfamily void cut\+Ellipsoid (\begin{DoxyParamCaption}\item[{int}]{xcenter,  }\item[{int}]{ycenter,  }\item[{int}]{zcenter,  }\item[{int}]{rx,  }\item[{int}]{ry,  }\item[{int}]{rz }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{250 \{}
+\DoxyCodeLine{251     \textcolor{keywordtype}{int} i,j,k;}
+\DoxyCodeLine{252     \textcolor{comment}{// Esse método desativa todos os voxels que satisfazem à equação do elipsóide}}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254     \textcolor{keywordflow}{for}(i=0; i<= xcenter; i++)}
+\DoxyCodeLine{255     \{}
+\DoxyCodeLine{256         \textcolor{keywordflow}{for}(j=0; j<= ycenter; j++)}
+\DoxyCodeLine{257         \{}
+\DoxyCodeLine{258             \textcolor{keywordflow}{for}(k=0; k<= zcenter; k++)}
+\DoxyCodeLine{259             \{}
+\DoxyCodeLine{260                 \textcolor{keywordflow}{if} ((pow((i - xcenter),2)/(pow(xcenter,2))) + ((pow((j - ycenter),2))/(pow(ycenter,2))) + ((pow((k - zcenter),2))/(pow(zcenter,2))) <= 1.0)}
+\DoxyCodeLine{261                 \{}
+\DoxyCodeLine{262                     matriz3D[i][j][k].isOn = \textcolor{keyword}{false};}
+\DoxyCodeLine{263                     matriz3D[i][j][k].r = R;}
+\DoxyCodeLine{264                     matriz3D[i][j][k].g = G;}
+\DoxyCodeLine{265                     matriz3D[i][j][k].b = B;}
+\DoxyCodeLine{266                     matriz3D[i][j][k].a = A;}
+\DoxyCodeLine{267                 \}}
+\DoxyCodeLine{268             \}}
+\DoxyCodeLine{269         \}}
+\DoxyCodeLine{270     \}}
+\DoxyCodeLine{271 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{escultor_metodos_8cpp_ae87792baa4ccdce23c23c317eb31e4c6}\label{escultor_metodos_8cpp_ae87792baa4ccdce23c23c317eb31e4c6}} 
+\index{escultorMetodos.cpp@{escultorMetodos.cpp}!putEllipsoid@{putEllipsoid}}
+\index{putEllipsoid@{putEllipsoid}!escultorMetodos.cpp@{escultorMetodos.cpp}}
+\subsubsection{\texorpdfstring{putEllipsoid()}{putEllipsoid()}}
+{\footnotesize\ttfamily void put\+Ellipsoid (\begin{DoxyParamCaption}\item[{int}]{xcenter,  }\item[{int}]{ycenter,  }\item[{int}]{zcenter,  }\item[{int}]{rx,  }\item[{int}]{ry,  }\item[{int}]{rz }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{226 \{}
+\DoxyCodeLine{227     \textcolor{keywordtype}{int} i,j,k;}
+\DoxyCodeLine{228     \textcolor{comment}{//Ativa todos os voxels que satisfazem à equação do elipsóide e atribui aos mesmos a cor atual de desenho}}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230     \textcolor{keywordflow}{for}(i=0; i<= xcenter; i++)}
+\DoxyCodeLine{231     \{}
+\DoxyCodeLine{232         \textcolor{keywordflow}{for}(j=0; j<= ycenter; j++)}
+\DoxyCodeLine{233         \{}
+\DoxyCodeLine{234             \textcolor{keywordflow}{for}(k=0; k<= zcenter; k++)}
+\DoxyCodeLine{235             \{}
+\DoxyCodeLine{236                 \textcolor{keywordflow}{if} ((pow((i - xcenter),2)/(pow(rx,2))) + ((pow((j - ycenter),2))/(pow(ry,2))) + ((pow((k - zcenter),2))/(pow(ry,2))) <= 1.0)}
+\DoxyCodeLine{237                 \{}
+\DoxyCodeLine{238                     matriz3D[i][j][k].isOn = \textcolor{keyword}{true};}
+\DoxyCodeLine{239                     matriz3D[i][j][k].r = R;}
+\DoxyCodeLine{240                     matriz3D[i][j][k].g = G;}
+\DoxyCodeLine{241                     matriz3D[i][j][k].b = B;}
+\DoxyCodeLine{242                     matriz3D[i][j][k].a = A;}
+\DoxyCodeLine{243                 \}}
+\DoxyCodeLine{244             \}}
+\DoxyCodeLine{245         \}}
+\DoxyCodeLine{246     \}}
+\DoxyCodeLine{247 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,46 @@
+\hypertarget{main_teste_8cpp}{}\section{main\+Teste.\+cpp File Reference}
+\label{main_teste_8cpp}\index{mainTeste.cpp@{mainTeste.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}Escultor3\+D.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_teste_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_teste_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_teste_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{mainTeste.cpp@{mainTeste.cpp}!main@{main}}
+\index{main@{main}!mainTeste.cpp@{mainTeste.cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{7           \{}
+\DoxyCodeLine{8 \textcolor{comment}{//int nx,ny,nz;}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{comment}{//cout<<"Digite as dimensoes do cubo (x,y,z) respectivamente:"<<endl;}}
+\DoxyCodeLine{11 \textcolor{comment}{//cin>>nx>>ny>>nz;}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{comment}{//cout<<"A matriz 3D eh dada por:"<<nx<<" X "<< ny<< "X" <<nz<<endl;}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{comment}{// Valores aleatórios atribuidos para teste}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \mbox{\hyperlink{class_sculptor}{Sculptor}} esc(2,2,2);}
+\DoxyCodeLine{18 esc.putBox(1,1,1,1,1,1);}
+\DoxyCodeLine{19   esc.cutBox(0,1,0,1,0,1);}
+\DoxyCodeLine{20   esc.setColor(0, 1, 0, 0.8);}
+\DoxyCodeLine{21   esc.putSphere(3,3,3,2);}
+\DoxyCodeLine{22   esc.cutSphere(3,3,3,2);}
+\DoxyCodeLine{23   esc.putEllipsoid(6,6,6,3,3,3);}
+\DoxyCodeLine{24   esc.cutEllipsoid(6,6,6,3,3,3);}
+\DoxyCodeLine{25   esc.writeOFF(\textcolor{stringliteral}{"C:/Users/Ricardo Varela/Downloads/UFRN C\&T/6º Semestre/Programação Avançada/Projeto-Escultor/escultor-voxel.off"});}
+\DoxyCodeLine{26   esc.writeVECT(\textcolor{stringliteral}{"C:/Users/Ricardo Varela/Downloads/UFRN C\&T/6º Semestre/Programação Avançada/Projeto-Escultor/escultor-voxel.vetc"});}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{30 \}}
+
+\end{DoxyCode}

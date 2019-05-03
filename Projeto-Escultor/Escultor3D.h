@@ -2,6 +2,8 @@
 #ifndef MATRIZ_H
 #define MATRIZ_H
 #include <iostream>
+#include <string>
+#include <fstream>
 // Header para extração das declaracões dos métodos, struct, classes.
 using namespace std;
 

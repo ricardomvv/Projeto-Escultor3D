@@ -1,9 +1,11 @@
+#include "Escultor3D.h"
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
 #include <math.h>
-#include "Escultor3D.h"
+#include <cstring>
 
+using namespace std;
 
 Sculptor::Sculptor(int _nx, int _ny, int _nz) //Construtor da classe
 {
@@ -43,6 +45,9 @@ Sculptor::Sculptor(int _nx, int _ny, int _nz) //Construtor da classe
 Sculptor::~Sculptor()
 {
     //Destrutor de Classes
+    if (nx == 0 || ny ==0 || nz ==0){
+        return;
+    }
 
     delete [] matriz3D[0][0];
     delete [] matriz3D[0];
@@ -222,7 +227,7 @@ void Sculptor::cutSphere(int xcenter, int ycenter, int zcenter, int radius)
     }
 }
 
-void putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
+void Sculptor::putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
 {
     int i,j,k;
     //Ativa todos os voxels que satisfazem à equação do elipsóide e atribui aos mesmos a cor atual de desenho
@@ -246,7 +251,7 @@ void putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
     }
 }
 
-void cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
+void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
 {
     int i,j,k;
     // Esse método desativa todos os voxels que satisfazem à equação do elipsóide
@@ -260,10 +265,10 @@ void cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
                 if ((pow((i - xcenter),2)/(pow(xcenter,2))) + ((pow((j - ycenter),2))/(pow(ycenter,2))) + ((pow((k - zcenter),2))/(pow(zcenter,2))) <= 1.0)
                 {
                     matriz3D[i][j][k].isOn = false;
-                    matriz3D[i][j][k].r = R;
-                    matriz3D[i][j][k].g = G;
-                    matriz3D[i][j][k].b = B;
-                    matriz3D[i][j][k].a = A;
+                    matriz3D[i][j][k].r = this->R;
+                    matriz3D[i][j][k].g = this->G;
+                    matriz3D[i][j][k].b = this->B;
+                    matriz3D[i][j][k].a = this->A;
                 }
             }
         }
@@ -278,7 +283,8 @@ void Sculptor::writeOFF(string filename)
 
     ofstream fout;
 
-    fout.open("./"+filename+".off");
+    fout.open(filename.c_str());
+
     if(fout.is_open() == false)
     {
         cout << "arquivo nao foi aberto\n";
@@ -380,8 +386,8 @@ void Sculptor::writeVECT(string filename)
 
     ofstream fout;
 
-    fout.open("./"+filename+".off");
-    if(fout.is_open() == false)
+    fout.open(filename.c_str());
+    if(fout.is_open()== false)
     {
         cout << "arquivo nao foi aberto\n";
         exit(1);
